@@ -47,7 +47,7 @@ export interface BotkitConfiguration {
     adapterConfig?: {[key: string]: any}; // object with stuff in it
 
     /**
-     * An instance of Express used to define web endpoints.  If not specified, oen will be created internally.
+     * An instance of Express used to define web endpoints.  If not specified, one will be created internally.
      * Note: only use your own Express if you absolutely must for some reason. Otherwise, use `controller.webserver`
      */
     webserver?: any;
@@ -1090,7 +1090,7 @@ export class Botkit {
         }
 
         let worker: BotWorker = null;
-        const adapter = custom_adapter || (config && config.context && config.context.adapter) ? config.context.adapter : this.adapter;
+        const adapter = custom_adapter || ((config && config.context && config.context.adapter) ? config.context.adapter : this.adapter);
 
         if (adapter.botkit_worker) {
             const CustomBotWorker = adapter.botkit_worker;

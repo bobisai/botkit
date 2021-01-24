@@ -393,15 +393,15 @@ export class WebexAdapter extends BotAdapter {
                 } else if (activity.channelData && activity.channelData.attachments) {
                     message.attachments = activity.channelData.attachments;
                 }
-                
+
                 // @ts-ignore ignore this webex specific field
                 if (activity.conversation && activity.conversation.parentId) {
                     // @ts-ignore ignore this webex specific field
                     message.parentId = activity.conversation.parentId;
-                } else if (activity.channelData.parentId) {
+                } else if (activity.channelData && activity.channelData.parentId) {
                     message.parentId = activity.channelData.parentId;
                 }
-                
+
                 const response = await this._api.messages.create(message);
 
                 responses.push(response);
